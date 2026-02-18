@@ -1,21 +1,34 @@
 // Satus -> In-Complete (Infinte Loop)
 
-import java.util.*;
-
 class HappyNumber{
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int num = sc.nextInt();
+
+    // Function to calculate sum of square of digits
+    public static int sumOfSquare(int n){
         int sum = 0;
-        while (num!=1 && num!=4) {
-            while (num>0) {
-               int digit = num%10;
-               sum += digit*digit;
-               num = num/10;
-            }
-            num = sum;
+        while (n>0) {
+            int digit = n%10;
+            sum += digit*digit;
+            n = n/10;
         }
-        if(num==1) System.out.println("Lucky Number");
-        else System.out.println("Not A Lucky Number");
+        return sum;
+    }
+
+    public static boolean isHappy(int n){
+        int slow = n;
+        int fast = n;
+
+        do{
+            slow = sumOfSquare(slow);
+            fast = sumOfSquare(sumOfSquare(fast));
+        }while (slow!= fast);
+
+        return slow==1;
+    }    
+    public static void main(String[] args){
+       int number = 14;
+       if(isHappy(number))
+            System.out.println(number + " is a happy number");
+       else
+            System.out.println(number + " is not a Happy Number");
     }
 }
