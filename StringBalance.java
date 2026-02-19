@@ -11,11 +11,9 @@ class StringBalance{
                 if(open>0)
                     open--;
                 else
-                    imbalance++;
+                    imbalance+=2;
             }
         }
-        int result = (imbalance+1)/2;
-        System.out.println(imbalance);
-        System.out.println(result);
+        System.out.println(open/2+imbalance);
     }
 }

@@ -1,4 +1,4 @@
-// Satus -> In-Complete (Infinte Loop)
+// Satus -> Completed
 
 class HappyNumber{
 
